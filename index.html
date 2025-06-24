@@ -16,11 +16,11 @@
             scroll-behavior: smooth;
         }
 
-        body {
+        /*body {
             font-family: \'Arial\', sans-serif;
             line-height: 1.6;
             color: #333;
-        }
+        }*/
 
         .container {
             max-width: 1200px;
@@ -80,9 +80,45 @@
 
         /* Hero Section */
         .hero-section {
+  background-image: url('plage0.png'); /* remplace par ton vrai chemin */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 110vh; /* plein écran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  position: relative;
+}
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Répartit l'espace verticalement */
+  min-height: 110vh;
+}
+
+.hero-content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hero-button-container {
+  margin-top: auto; /* Pousse le bouton vers le bas */
+  padding-bottom: 80px; /* Espace depuis le bas */
+  text-align: center;
+}
+
+
+
+        /*.hero-section {
             height: 100vh;
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(255, 165, 0, 0.8)), 
-                        url(\'https://images.pexels.com/photos/2838159/pexels-photo-2838159.jpeg\');
+                        url(\'plage.jpg\');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -110,7 +146,7 @@
             z-index: 2;
             position: relative;
             animation: fadeInUp 1s ease-out;
-        }
+        }*/
 
         .logo-container {
             margin-bottom: 2rem;
@@ -565,7 +601,7 @@
             margin-bottom: 0.5rem;
             opacity: 0.8;
         }
-
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -694,14 +730,13 @@
     <nav class="navigation-menu">
         <div class="nav-container">
             <div class="nav-logo">
-                <span>STEP UP</span>
-                <span>BOOMERANG</span>
+                <span>CELSUS</span>
             </div>
             <div class="nav-links">
                 <a href="#tournament" class="nav-link">Tournoi</a>
+                <a href="#jeux" class="nav-link">Jeux</a>
                 <a href="#programme" class="nav-link">Programme</a>
-                <a href="#inscription-form" class="nav-link">S'inscrire</a>
-                <a href="#particpation" class="nav-link">Participer</a>
+                <a href="#inscription-form" class="nav-link">S\'inscrire</a>
             </div>
         </div>
     </nav>
@@ -710,14 +745,16 @@
     <header class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="logo-container">
+            <!---<div class="logo-container">
                 <div class="logo-placeholder">
-                    <span>CELSUS BEACH TOUR</span>
+                    <span>CELSUS</span>
                 </div>
             </div>
-            <h1 class="hero-title">Participe au Grand Challenge Sportif</h1>
-            <p class="hero-subtitle">Des tournois, des prix, une ambiance unique</p>
-            <a href="#inscription-form" class="cta-button">S\'inscrire maintenant</a>
+             <h1 class="hero-title">Participe à la plus grande tournée estivale</h1>
+            <p class="hero-subtitle">Des tournois, des prix, une ambiance unique</p> -->
+            <div class="hero-button-container"> <!-- Conteneur spécifique pour le bouton -->
+                <a href="#inscription-form" class="cta-button">S'inscrire maintenant</a>
+            </div>
         </div>
     </header>
 
@@ -736,7 +773,7 @@
                     </p>
                 </div>
                 <div class="tournament-image">
-                    <img src="foot.png" alt="Football Tournament - Jeune footballeur sénégalais" />
+                    <img src="C:\Users\boome\Downloads\celsius\foot.png" alt="Football Tournament - Jeune footballeur sénégalais" />
                 </div>
             </div>
         </div>
@@ -749,7 +786,7 @@
             <div class="games-grid">
                 <div class="game-card">
                     <div class="game-image">
-                        <img src="lutte.png" alt="Lutte Traditionnelle Sénégalaise" />
+                        <img src="C:\Users\boome\Downloads\celsius\lutte.png" alt="Lutte Traditionnelle Sénégalaise" />
                     </div>
                     <div class="game-content">
                         <h3>Lutte Traditionnelle</h3>
@@ -759,17 +796,17 @@
                 
                 <div class="game-card">
                     <div class="game-image">
-                        <img src="socer.png" alt="Basketball - Jeune athlète africain" />
+                        <img src="C:\Users\boome\Downloads\celsius\socer.png" alt="Basketball - Jeune athlète africain" />
                     </div>
                     <div class="game-content">
                         <h3>Beach Soccer</h3>
-                        <p>Défi d\'agilité et de précision</p>
+                        <p>Défi d'agilité et de précision</p>
                     </div>
                 </div>
                 
                 <div class="game-card">
                     <div class="game-image">
-                        <img src="tennis.png" alt="Fitness - Jeunes athlètes africaines" />
+                        <img src="C:\Users\boome\Downloads\celsius\tennis.png" alt="Fitness - Jeunes athlètes africaines" />
                     </div>
                     <div class="game-content">
                         <h3>tennis</h3>
@@ -781,7 +818,7 @@
     </section>
 
     <!-- How to Participate Section -->
-    <section class="participation-section" id="particpation">
+    <section class="participation-section">
         <div class="container">
             <h2 class="section-title">Comment Participer</h2>
             <div class="steps-container">
@@ -890,7 +927,7 @@
             <h2 class="section-title">Inscription au Tournoi</h2>
             <div class="form-container">
                 <iframe
-                    src="https://forms.gle/dfsydLSevTXewe2k6"
+                    src="https://docs.google.com/forms/d/1qngBGlHGaZWpO0Eyp-AluNn61FI7M0aowiYrfA0WwMQ/preview"
                     width="100%"
                     height="600"
                     frameBorder="0"
