@@ -1,125 +1,920 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Challenge Sportif Sénégal</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fefefe;
-      color: #333;
-    }
-    header {
-      background-image: url('https://www.africatopsports.com/wp-content/uploads/2022/08/lutte-traditionnelle.jpg');
-      background-size: cover;
-      background-position: center;
-      padding: 100px 20px;
-      color: white;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    }
-    header p {
-      font-size: 1.2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    }
-    .btn-inscription {
-      margin-top: 20px;
-      background-color: #FFA500;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section-title {
-      font-size: 2rem;
-      color: #007BFF;
-      margin-bottom: 20px;
-    }
-    .event-block {
-      margin-bottom: 40px;
-    }
-    .event-img {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    .programme ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .programme li {
-      margin-bottom: 12px;
-      font-size: 1.1rem;
-    }
-    iframe {
-      width: 100%;
-      min-height: 100vh;
-      height: 100vh;
-      border: none;
-    }
-    @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      .section-title { font-size: 1.5rem; }
-      iframe { height: 100vh; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsus Beach Tour - Grand Challenge Sportif</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: \'Arial\', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Menu */
+        .navigation-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007BFF;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #007BFF;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(255, 165, 0, 0.8)), 
+                        url(\'https://images.pexels.com/photos/2838159/pexels-photo-2838159.jpeg\');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 123, 255, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo-placeholder {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFA500, #FF8C00);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 165, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 165, 0, 0.4);
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+        }
+
+        /* Tournament Section */
+        .tournament-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        .tournament-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #007BFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: \'\';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #007BFF, #FFA500);
+            border-radius: 2px;
+        }
+
+        .tournament-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .prize-amount {
+            color: #FFA500;
+            font-weight: 700;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .tournament-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .tournament-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .tournament-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .tournament-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Games Section */
+        .games-section {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .games-section .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0, 123, 255, 0.15);
+        }
+
+        .game-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .game-image::before {
+            content: \'\';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(255, 165, 0, 0.3));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover .game-image::before {
+            opacity: 1;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover .game-image img {
+            transform: scale(1.1);
+        }
+
+        .game-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .game-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-content p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Participation Section */
+        .participation-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+        }
+
+        .participation-section .section-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #FFA500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step-content p {
+            opacity: 0.9;
+        }
+
+        /* Programme Section */
+        .programme-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        .programme-section .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 3rem;
+        }
+
+        .programme-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .programme-timeline::before {
+            content: \'\';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #007BFF, #FFA500);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item::before {
+            content: \'\';
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #007BFF;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #007BFF;
+        }
+
+        .timeline-item.highlight::before {
+            background: #FFA500;
+            box-shadow: 0 0 0 4px #FFA500;
+        }
+
+        .timeline-time {
+            background: #007BFF;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 140px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .timeline-item.highlight .timeline-time {
+            background: #FFA500;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin: 0 2rem;
+            flex: 1;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.15);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: \'\';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 12px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: \'\';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 12px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item.highlight .timeline-content h3 {
+            color: #FFA500;
+        }
+
+        .timeline-content p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .form-section .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .form-container iframe {
+            border-radius: 15px;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFA500;
+            letter-spacing: 2px;
+        }
+
+        .footer-text p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .tournament-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tournament-image {
+                transform: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .programme-timeline::before {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-time {
+                min-width: 120px;
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .timeline-content {
+                margin: 0 0 0 1rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -12px;
+                border-right: 12px solid white;
+                border-left: none;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .tournament-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Participe au Grand Challenge Sportif</h1>
-    <p>Des tournois, des prix, une ambiance unique</p>
-    <a href="#formulaire"><button class="btn-inscription">S'inscrire maintenant</button></a>
-  </header>
+    <!-- Navigation Menu -->
+    <nav class="navigation-menu">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>CELSUS</span>
+            </div>
+            <div class="nav-links">
+                <a href="#tournament" class="nav-link">Tournoi</a>
+                <a href="#jeux" class="nav-link">Jeux</a>
+                <a href="#programme" class="nav-link">Programme</a>
+                <a href="#inscription-form" class="nav-link">S\'inscrire</a>
+            </div>
+        </div>
+    </nav>
 
-  <section class="event-block">
-    <h2 class="section-title">⚽ Tournoi de Football – Le Grand Défi !</h2>
-    <p>
-      Le tournoi de football petit camp est l’épreuve phare de notre événement : une compétition à élimination directe, avec une seule équipe gagnante. Le recrutement se fera lors de la caravane (Dakar, Mbour, Saint-Louis) et via nos influenceurs partenaires. Les inscriptions se font sur cette page.
-      <br><br>
-      🏆 Le vainqueur remportera un chèque de <strong style="color: orange;">2 millions de FCFA</strong>.
-    </p>
-    <img class="event-img" src="https://i.imgur.com/4g3cHcb.jpg" alt="Jeune joueur sénégalais">
-  </section>
+    <!-- Header Hero Section -->
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <span>CELSUS</span>
+                </div>
+            </div>
+            <h1 class="hero-title">Participe au Grand Challenge Sportif</h1>
+            <p class="hero-subtitle">Des tournois, des prix, une ambiance unique</p>
+            <a href="#inscription-form" class="cta-button">S\'inscrire maintenant</a>
+        </div>
+    </header>
 
-  <section class="event-block">
-    <h2 class="section-title">🤼 Lutte Traditionnelle – Mbapatt</h2>
-    <p>
-      Mbapatt, l’art ancestral du combat sénégalais, sera également mis à l’honneur. Nos lutteurs locaux offriront un spectacle unique et authentique, symbole de courage et de tradition.
-    </p>
-    <img class="event-img" src="https://i.imgur.com/hG9zAHZ.jpg" alt="Lutte sénégalaise traditionnelle">
-  </section>
+    <!-- Tournament Football Section -->
+    <section class="tournament-section" id="tournament">
+        <div class="container">
+            <div class="tournament-content">
+                <div class="tournament-text">
+                    <h2 class="section-title">Tournoi de Football – Le Grand Défi !</h2>
+                    <p class="tournament-description">
+                        Le tournoi de football petit camp est l\'épreuve phare de notre événement : 
+                        une compétition à élimination directe, avec une seule équipe gagnante. 
+                        Le recrutement se fera lors de la caravane (Dakar, Mbour, Saint-Louis) 
+                        et via nos influenceurs partenaires. Les inscriptions se font sur cette page. 
+                        Le vainqueur remportera un chèque de <span class="prize-amount">2 millions de FCFA</span>.
+                    </p>
+                </div>
+                <div class="tournament-image">
+                    <img src="foot.png" alt="Football Tournament - Jeune footballeur sénégalais" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="event-block programme">
-    <h2 class="section-title">📅 Programme de la Journée</h2>
-    <ul>
-      <li><strong>08h00</strong> : Set Setal (nettoyage collectif)</li>
-      <li><strong>09h00</strong> : Tirage au sort des équipes</li>
-      <li><strong>10h00</strong> : Cérémonie d’ouverture officielle</li>
-      <li><strong>11h00</strong> : Séance de fitness collective</li>
-      <li><strong>12h00</strong> : Début des activités sportives</li>
-      <li><strong>14h00 – 14h30</strong> : Pause déjeuner</li>
-      <li><strong>15h00</strong> : Grande finale du tournoi</li>
-      <li><strong>17h00</strong> : Big concert avec des artistes sénégalais 🎤</li>
-    </ul>
-  </section>
+    <!-- Other Games Section -->
+    <section class="games-section" id="jeux">
+        <div class="container">
+            <h2 class="section-title">Autres Jeux du Tournoi</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="lutte.png" alt="Lutte Traditionnelle Sénégalaise" />
+                    </div>
+                    <div class="game-content">
+                        <h3>Lutte Traditionnelle</h3>
+                        <p>Mbapatt - L\'art ancestral du combat sénégalais</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="socer.png" alt="Basketball - Jeune athlète africain" />
+                    </div>
+                    <div class="game-content">
+                        <h3>Beach Soccer</h3>
+                        <p>Défi d\'agilité et de précision</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="tennis.png" alt="Fitness - Jeunes athlètes africaines" />
+                    </div>
+                    <div class="game-content">
+                        <h3>tennis</h3>
+                        <p>Compétition de force et endurance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="formulaire" class="event-block">
-    <h2 class="section-title">📝 Formulaire d'inscription</h2>
-    <iframe src="https://docs.google.com/forms/d/e/TON_FORM_ID/viewform?embedded=true">Chargement…</iframe>
-  </section>
+    <!-- How to Participate Section -->
+    <section class="participation-section">
+        <div class="container">
+            <h2 class="section-title">Comment Participer</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Rejoins la Caravane</h3>
+                        <p>ou découvre l\'événement en ligne</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Inscris-toi</h3>
+                        <p>via le formulaire ci-dessous</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Prépare-toi</h3>
+                        <p>pour le challenge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+    <section class="programme-section" id="programme">
+        <div class="container">
+            <h2 class="section-title">🗓️ Programme de la Journée</h2>
+            <div class="programme-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">8h00</div>
+                    <div class="timeline-content">
+                        <h3>Set Setal</h3>
+                        <p>Nettoyage collectif</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">9h00</div>
+                    <div class="timeline-content">
+                        <h3>Tirage au Sort</h3>
+                        <p>Formation des équipes</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">10h00</div>
+                    <div class="timeline-content">
+                        <h3>Cérémonie d\'Ouverture</h3>
+                        <p>Lancement officiel de l\'événement</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">11h00</div>
+                    <div class="timeline-content">
+                        <h3>Fitness Collectif</h3>
+                        <p>Échauffement et préparation</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">12h00</div>
+                    <div class="timeline-content">
+                        <h3>Activités Sportives</h3>
+                        <p>Début des compétitions</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">14h00 - 14h30</div>
+                    <div class="timeline-content">
+                        <h3>Pause Déjeuner</h3>
+                        <p>Repos et restauration</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">15h00</div>
+                    <div class="timeline-content">
+                        <h3>Grande Finale</h3>
+                        <p>Finale du tournoi principal</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">17h00</div>
+                    <div class="timeline-content">
+                        <h3>Big Concert 🎤</h3>
+                        <p>Artistes sénégalais en live</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="form-section" id="inscription-form">
+        <div class="container">
+            <h2 class="section-title">Inscription au Tournoi</h2>
+            <div class="form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/1qngBGlHGaZWpO0Eyp-AluNn61FI7M0aowiYrfA0WwMQ/preview"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    marginHeight="0"
+                    marginWidth="0"
+                    title="Formulaire d\'inscription">
+                    Chargement du formulaire...
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>CELSUS BEACH TOUR</span>
+                </div>
+                <div class="footer-text">
+                    <p>© 2025 Celsus Beach Tour. Tous droits réservés.</p>
+                    <p>Un événement sportif exceptionnel au cœur de l\'Afrique</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
-</html>
+</html> 
