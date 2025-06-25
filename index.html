@@ -58,6 +58,26 @@
             letter-spacing: 2px;
         }
 
+        /* Menu Burger */
+        .menu-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-burger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #002060;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -79,7 +99,7 @@
             background: rgba(0, 123, 255, 0.1);
         }
 
-        /* Hero Section - Version optimisée */
+        /* Hero Section */
         .hero-section {
             background-image: url('plage0.png');
             background-size: cover;
@@ -88,17 +108,17 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Aligne le contenu en bas */
+            justify-content: center;
             text-align: center;
             color: white;
             position: relative;
-            padding-bottom: 80px; /* Espace pour le bouton */
+            padding: 20px;
         }
 
         .hero-content {
             width: 100%;
             padding: 0 20px;
-            margin-bottom: 80px; /* Espace au-dessus du bouton */
+            margin-bottom: 80px;
         }
 
         .logo-container {
@@ -134,7 +154,7 @@
 
         .cta-button {
             display: inline-block;
-            background:  #e55112;
+            background: #e55112;
             color: white;
             text-decoration: none;
             padding: 1rem 2.5rem;
@@ -480,9 +500,11 @@
         }
 
         @media (max-width: 768px) {
-            /* Navigation */
+            .menu-burger {
+                display: flex;
+            }
+            
             .nav-links {
-                display: none;
                 position: fixed;
                 top: 70px;
                 left: 0;
@@ -493,17 +515,20 @@
                 padding: 2rem;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                display: none;
             }
+            
             .nav-links.active {
                 display: flex;
             }
+            
             .nav-link {
-                padding: 1rem;
+                width: 100%;
                 text-align: center;
+                padding: 1rem 0;
+                margin: 0.5rem 0;
             }
-            .menu-burger {
-                display: flex;
-            }
+
             /* Hero Section */
             .hero-section {
                 padding-bottom: 60px;
@@ -575,6 +600,10 @@
 
         @media (max-width: 576px) {
             /* Hero Section */
+            .hero-section {
+                background-position: 75% center;
+            }
+            
             .hero-title {
                 font-size: 2rem;
             }
@@ -591,7 +620,6 @@
             /* General Sections */
             .section-title {
                 font-size: 1.8rem;
-                background-position: 70% center;
             }
 
             /* Games Section */
@@ -618,7 +646,12 @@
             <div class="nav-logo">
                 <span>CELSUS</span>
             </div>
-            <div class="nav-links">
+            <div class="menu-burger" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
                 <a href="#tournament" class="nav-link">Tournoi</a>
                 <a href="#jeux" class="nav-link">Jeux</a>
                 <a href="#programme" class="nav-link">Programme</a>
@@ -627,18 +660,11 @@
         </div>
     </nav>
 
-    <!-- Header Hero Section - Version optimisée -->
+    <!-- Header Hero Section -->
     <header class="hero-section">
         <div class="hero-content">
-            <!--<div class="logo-container">
-                <div class="logo-placeholder">
-                    <span>CELSUS</span>
-                </div>
-            </div>-->
             <h1 class="hero-title">Participe à la plus grande tournée estivale</h1>
             <p class="hero-subtitle">Des tournois, des prix, une ambiance unique</p>
-            
-            <!-- Bouton positionné en bas grâce au flex-direction: column et justify-content: flex-end -->
             <a href="#inscription-form" class="cta-button">S'inscrire maintenant</a>
         </div>
     </header>
@@ -834,5 +860,29 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                
+                // Empêche le défilement de la page quand le menu est ouvert
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+            });
+            
+            // Fermer le menu quand on clique sur un lien
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
