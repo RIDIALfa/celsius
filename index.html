@@ -118,7 +118,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('plage0.png');
+            background-image: url('plage00.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -601,6 +601,9 @@
             .hero-section {
                 background-position: 75% center;
             }
+            .hero-section::before {
+                background-image: url('plage01.png');
+            }
             
             .hero-title {
                 font-size: 2rem;
@@ -636,6 +639,9 @@
             }
         }
         @media (max-width: 480px) {
+            .hero-section::before {
+                background-image: url('plage01.png');
+            }
             .hero-title {
                 font-size: 1.8rem;
             }
